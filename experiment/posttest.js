@@ -89,25 +89,49 @@
 
 
     const myQuestions = [{
-            question: "1.This is a sample question:", ///// Write the question inside double quotes
+            question: "1. Response spectrum is the plot between time period and maximum displacement of building to a given ground motion.
+", ///// Write the question inside double quotes
             answers: {
-                a: "This is a sample answer A", ///// Write the option 1 inside double quotes
-                b: "This is a sample answer B", ///// Write the option 2 inside double quotes
+                a: "True", ///// Write the option 1 inside double quotes
+                b: "False", ///// Write the option 2 inside double quotes
             },
             correctAnswer: "a" ///// Write the correct option inside double quotes
         },
 
     {
-      question: "<img src='images/8.PNG'><br>Identify the location of Secondary electron detector",  ///// Write the question inside double quotes
+      question: "2. Time period controls maximum response.",  ///// Write the question inside double quotes
       answers: {
-        a: "<img src='images/1b.png'>",                  ///// Write the option 1 inside double quotes
-        b: "<img src='images/1a.png'>",                  ///// Write the option 2 inside double quotes
-        c: "<img src='images/1c.PNG'>",      },
-      correctAnswer: "c"                ///// Write the correct option inside double quotes
+        a: "True",                  ///// Write the option 1 inside double quotes
+        b: "False",                  ///// Write the option 2 inside double quotes
+      },
+      correctAnswer: "a"                ///// Write the correct option inside double quotes
     },
 
+    question: "3. Buildings of different size, shapes will always have different time periods.",  ///// Write the question inside double quotes
+      answers: {
+        a: "True",                  ///// Write the option 1 inside double quotes
+        b: "False",                  ///// Write the option 2 inside double quotes
+      },
+      correctAnswer: "b"                ///// Write the correct option inside double quotes
+    },			 
 
-        
+
+    question: "4. Spectrum values are independent of damping.",  ///// Write the question inside double quotes
+      answers: {
+        a: "True",                  ///// Write the option 1 inside double quotes
+        b: "False",                  ///// Write the option 2 inside double quotes
+      },
+      correctAnswer: "b"                ///// Write the correct option inside double quotes
+    },
+
+    question: "5. Response spectrum is very useful for structural engineers in design.",  ///// Write the question inside double quotes
+      answers: {
+        a: "True",                  ///// Write the option 1 inside double quotes
+        b: "False",                  ///// Write the option 2 inside double quotes
+      },
+      correctAnswer: "a"                ///// Write the correct option inside double quotes
+    }
+
     ];
 
 
