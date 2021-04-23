@@ -1,7 +1,6 @@
 'use strict';
 
 document.addEventListener('DOMContentLoaded', function(){
-
 	function init()
 	{
 		dataNum = 1;
@@ -139,10 +138,98 @@ document.addEventListener('DOMContentLoaded', function(){
 			alert(err);
 		}
 	}
+	const canvas = document.getElementById("main");
+	canvas.width = 1200;
+	canvas.height = 600;
+	canvas.style = "border:3px solid";
+	const ctx = canvas.getContext("2d");
 
+	const fill = "#A9A9A9", border = "black", lineWidth = 1.5;
 	const fps = 15;
 	const dataSets = [data1, data2, data3, data4, data5, data6];
-	const g = 9.81, dt = 0.02;
+	let radius=[20,20,20,20,20];
+	let curr_displacement=0;
+	let height = [125,150, 175, 200, 225];
+	let g=9.81,dt=0.02;
+
+	const startx = 596, endx = 600, margin = 300, starty = 220, gap = 100, endy = starty + height[0];
+	
+
+	let rod = [[[startx-2*gap ,endy-height[0]],[endx-2*gap,endy-height[0]] , [endx-2*gap,endy] , [startx-2*gap,endy]],
+	[[startx-gap ,endy-height[1]],[endx-gap,endy-height[1]] , [endx-gap,endy] , [startx-gap,endy]],
+	[[startx ,endy-height[2]],[endx,endy-height[2]] , [endx,endy] , [startx,endy]],
+	[[startx+gap ,endy-height[3]],[endx+gap,endy-height[3]] , [endx+gap,endy] , [startx+gap,endy]],
+	[[startx+2*gap ,endy-height[4]],[endx+2*gap,endy-height[4]] , [endx+2*gap,endy] , [startx+2*gap,endy]]];
+
+
+	let ground = [
+		[startx - margin, starty + height[0] + 40],
+		[startx - margin, starty + height[0]],
+		[endx + margin, starty + height[0]],
+		[endx + margin, starty + height[0] + 40],
+	];
+
+	function drawGround(ctx, ground)
+	{
+		ctx.save();
+		ctx.fillStyle = "pink";
+		ctx.beginPath();
+		ctx.moveTo(ground[0][0], ground[0][1]);
+
+		ground.forEach(function(g, index){
+			const next = (index + 1) % ground.length;
+			ctx.lineTo(ground[next][0], ground[next][1]);
+		});
+
+		ctx.closePath();
+		ctx.fill();
+		ctx.stroke();
+		ctx.restore();
+	}
+
+	function draw()
+	{
+		ctx.clearRect(0, 0, canvas.width, canvas.height);
+		ctx.fillStyle = fill;
+		ctx.lineWidth = lineWidth;
+		ctx.lineCap = "round";
+		ctx.lineJoin = "round";
+        drawGround(ctx, ground)
+		for(let k=0; k<5; k++){
+			let v = [...rod[k]];
+			
+			curr_displacement=0;
+			const new_up_L = v[0][0] + curr_displacement;
+			const new_up_R = v[1][0] + curr_displacement;
+
+			ctx.beginPath();
+			ctx.moveTo(new_up_L, v[0][1]);
+			ctx.lineTo(new_up_R,v[1][1]);
+			ctx.lineTo(v[2][0],v[2][1]);
+			ctx.lineTo(v[3][0],v[3][1]);
+			ctx.lineTo(new_up_L,v[0][1])
+
+
+			ctx.closePath();
+			ctx.fill();
+			ctx.stroke();
+
+			ctx.save();
+			ctx.fillStyle = "red";
+			
+			ctx.beginPath();
+			ctx.moveTo(new_up_L -radius[k], v[0][1]);
+			ctx.bezierCurveTo(new_up_L-radius[k],v[0][1]-radius[k],new_up_R+radius[k],v[0][1]-radius[k],new_up_R+radius[k],v[1][1])
+			ctx.bezierCurveTo(new_up_R+radius[k],v[1][1]+radius[k],new_up_L-radius[k],v[1][1]+radius[k],new_up_L-radius[k],v[0][1])
+
+			ctx.closePath();
+
+			ctx.fill();
+			ctx.stroke();
+			ctx.restore();
+		}
+	}
+	draw();
 
 	// Input Parameters 
 	let dataNum, etta, timePeriod, data;
