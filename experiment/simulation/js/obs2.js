@@ -1,6 +1,7 @@
 'use strict';
 
 document.addEventListener('DOMContentLoaded', function(){
+
 	function init()
 	{
 		dataNum = 1;
@@ -84,9 +85,9 @@ document.addEventListener('DOMContentLoaded', function(){
 	function drawGraph(Xaxis, Yaxis, Ytext, id, point) {
 		try {
 			// render the plot using plotly
-			let col = []
+			let col = [];
 			Xaxis.forEach(function(val, ind){
-				col.push("blue")
+				col.push("blue");
 				if(ind === point)
 				{
 					col[ind] = "red";
@@ -102,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function(){
 					color: col
 				}
 			};
-			
+
 			const layout = {
 				width: 450,
 				height: 450,
@@ -138,6 +139,7 @@ document.addEventListener('DOMContentLoaded', function(){
 			alert(err);
 		}
 	}
+
 	const canvas = document.getElementById("main");
 	canvas.width = 1200;
 	canvas.height = 600;
@@ -147,27 +149,26 @@ document.addEventListener('DOMContentLoaded', function(){
 	const fill = "#A9A9A9", border = "black", lineWidth = 1.5;
 	const fps = 15;
 	const dataSets = [data1, data2, data3, data4, data5, data6];
-	let radius=[20,20,20,20,20];
-	let curr_displacement=0;
-	let height = [125,150, 175, 200, 225];
-	let g=9.81,dt=0.02;
+	const g = 9.81, dt = 0.02;
+	const radius = [20, 20, 20, 20, 20], height = [125, 150, 175, 200, 225], startx = 596, endx = 600, margin = 300, starty = 220, gap = 100, endy = starty + height[0];
 
-	const startx = 596, endx = 600, margin = 300, starty = 220, gap = 100, endy = starty + height[0];
-	
+	const rod = [[[startx - 2 * gap, endy - height[0]], [endx - 2 * gap, endy - height[0]], [endx - 2 * gap, endy], [startx - 2 * gap, endy]],
+		[[startx - gap, endy - height[1]], [endx - gap, endy - height[1]], [endx - gap, endy], [startx - gap, endy]],
+		[[startx, endy - height[2]], [endx, endy - height[2]], [endx, endy], [startx, endy]],
+		[[startx + gap, endy - height[3]], [endx + gap, endy - height[3]], [endx + gap, endy], [startx + gap, endy]],
+		[[startx + 2 * gap, endy - height[4]], [endx + 2 * gap, endy - height[4]], [endx + 2 * gap, endy], [startx + 2 * gap, endy]]];
 
-	let rod = [[[startx-2*gap ,endy-height[0]],[endx-2*gap,endy-height[0]] , [endx-2*gap,endy] , [startx-2*gap,endy]],
-	[[startx-gap ,endy-height[1]],[endx-gap,endy-height[1]] , [endx-gap,endy] , [startx-gap,endy]],
-	[[startx ,endy-height[2]],[endx,endy-height[2]] , [endx,endy] , [startx,endy]],
-	[[startx+gap ,endy-height[3]],[endx+gap,endy-height[3]] , [endx+gap,endy] , [startx+gap,endy]],
-	[[startx+2*gap ,endy-height[4]],[endx+2*gap,endy-height[4]] , [endx+2*gap,endy] , [startx+2*gap,endy]]];
-
-
-	let ground = [
+	const ground = [
 		[startx - margin, starty + height[0] + 40],
 		[startx - margin, starty + height[0]],
 		[endx + margin, starty + height[0]],
 		[endx + margin, starty + height[0] + 40],
 	];
+
+	// Input Parameters 
+	let dataNum, etta, timePeriod, data;
+	let disp, vel, accl, time, periods;
+	init();
 
 	function drawGround(ctx, ground)
 	{
@@ -194,21 +195,17 @@ document.addEventListener('DOMContentLoaded', function(){
 		ctx.lineWidth = lineWidth;
 		ctx.lineCap = "round";
 		ctx.lineJoin = "round";
-        drawGround(ctx, ground)
-		for(let k=0; k<5; k++){
-			let v = [...rod[k]];
-			
-			curr_displacement=0;
-			const new_up_L = v[0][0] + curr_displacement;
-			const new_up_R = v[1][0] + curr_displacement;
+
+		drawGround(ctx, ground);
+
+		rod.forEach(function(v, k){
 
 			ctx.beginPath();
-			ctx.moveTo(new_up_L, v[0][1]);
-			ctx.lineTo(new_up_R,v[1][1]);
-			ctx.lineTo(v[2][0],v[2][1]);
-			ctx.lineTo(v[3][0],v[3][1]);
-			ctx.lineTo(new_up_L,v[0][1])
-
+			ctx.moveTo(v[0][0], v[0][1]);
+			ctx.lineTo(v[1][0], v[1][1]);
+			ctx.lineTo(v[2][0], v[2][1]);
+			ctx.lineTo(v[3][0], v[3][1]);
+			ctx.lineTo(v[0][0], v[0][1]);
 
 			ctx.closePath();
 			ctx.fill();
@@ -216,25 +213,18 @@ document.addEventListener('DOMContentLoaded', function(){
 
 			ctx.save();
 			ctx.fillStyle = "red";
-			
+
 			ctx.beginPath();
-			ctx.moveTo(new_up_L -radius[k], v[0][1]);
-			ctx.bezierCurveTo(new_up_L-radius[k],v[0][1]-radius[k],new_up_R+radius[k],v[0][1]-radius[k],new_up_R+radius[k],v[1][1])
-			ctx.bezierCurveTo(new_up_R+radius[k],v[1][1]+radius[k],new_up_L-radius[k],v[1][1]+radius[k],new_up_L-radius[k],v[0][1])
+			ctx.moveTo(v[0][0] - radius[k], v[0][1]);
+			ctx.bezierCurveTo(v[0][0] - radius[k], v[0][1] - radius[k], v[1][0] + radius[k], v[0][1] - radius[k], v[1][0] + radius[k], v[1][1]);
+			ctx.bezierCurveTo(v[1][0] + radius[k], v[1][1] + radius[k], v[0][0] - radius[k], v[1][1] + radius[k], v[0][0] - radius[k], v[0][1]);
 
 			ctx.closePath();
-
 			ctx.fill();
 			ctx.stroke();
 			ctx.restore();
-		}
+		});
 	}
-	draw();
-
-	// Input Parameters 
-	let dataNum, etta, timePeriod, data;
-	let disp, vel, accl, time, periods;
-	init();
 
 	function main()
 	{
@@ -252,4 +242,5 @@ document.addEventListener('DOMContentLoaded', function(){
 	}
 
 	main(); 
+	draw();
 })
