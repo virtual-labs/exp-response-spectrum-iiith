@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function(){
 			[endx + margin, starty + height[0] + 40],
 		];
 
-		radius = [mass[0] / 10000, mass[1] / 10000];
+		radius = [mass[0] / 5000, mass[1] / 5000];
 		ind = 0;
 		const len = data.length;
 		disp = [];
