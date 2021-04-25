@@ -211,9 +211,6 @@ document.addEventListener('DOMContentLoaded', function(){
 			ctx.fill();
 			ctx.stroke();
 
-			ctx.save();
-			ctx.fillStyle = "red";
-
 			ctx.beginPath();
 			ctx.moveTo(v[0][0] - radius[k], v[0][1]);
 			ctx.bezierCurveTo(v[0][0] - radius[k], v[0][1] - radius[k], v[1][0] + radius[k], v[0][1] - radius[k], v[1][0] + radius[k], v[1][1]);
@@ -222,7 +219,6 @@ document.addEventListener('DOMContentLoaded', function(){
 			ctx.closePath();
 			ctx.fill();
 			ctx.stroke();
-			ctx.restore();
 		});
 	}
 
