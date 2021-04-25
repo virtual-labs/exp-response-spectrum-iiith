@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+		<link rel="stylesheet" href="./css/main.css">
+	</head>
+
+	<body class="page">
+		<div class="columns is-mobile is-centered">
+			<div class="column has-text-centered">
+				<h1 class="title">Concept of Response Spectrum</h1>
+			</div>
+		</div>
+
+		<div class="tabs is-boxed is-medium">
+			<ul>
+				<li><a href="./index.html">Observation 1</a></li>
+				<li class="is-active"><a href="./obs2.html">Observation 2</a></li>
+				<li><a href="./vid.html">Video</a></li>
+			</ul>
+		</div>
+
+		<div class="graph">
+			<div class="columns is-centered">
+				<div class="column has-text-centered">
+					<div class="title is-4">Observation 2</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="columns is-centered">
+			<div class="column has-text-centered">
+				<div class="slidecontainer">
+					<p>GROUND MOTION: <span id="demo_groundMot"></span></p>
+					<input type="range" min="1" max="6" value="1" class="slider" id="groundMot">
+				</div>
+			</div>
+
+			<div class="column has-text-centered">
+				<div class="slidecontainer">
+					<p>ETTA(DAMPING in %): <span id="demo_etta"></span></p>
+					<input type="range" min="2" max="15" value="5" class="slider" id="etta">
+				</div>
+			</div>
+
+			<div class="column has-text-centered">
+				<div class="slidecontainer">
+					<p>TIME PERIOD(in millisec): <span id="demo_timePeriod"></span></p>
+					<input type="range" min="100" max="4000" step="100" value="100" class="slider" id="timePeriod">
+				</div>
+			</div>
+		</div>
+
+		<div class="columns is-mobile is-centered">
+			<div class="column has-text-centered">
+				<div class="hero is-small">
+					<div class="hero-body">
+						<canvas class="main" id="main"></canvas>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="graph">
+			<div class="columns is-centered">
+				<div class="column has-text-centered">
+					<div id="disPlot" ></div>
+				</div>
+
+				<div class="column has-text-centered">
+					<div id="velPlot" ></div>
+				</div>
+
+				<div class="column has-text-centered">
+					<div id="acclPlot" ></div>
+				</div>
+			</div>
+		</div>
+
+		<script src="./data/groundData1.json"></script>
+		<script src="./data/groundData2.json"></script>
+		<script src="./data/groundData3.json"></script>
+		<script src="./data/groundData4.json"></script>
+		<script src="./data/groundData5.json"></script>
+		<script src="./data/groundData6.json"></script>
+
+		<script src="https://unpkg.com/mathjs@9.2.0/lib/browser/math.js"></script>
+		<script src="https://cdn.plot.ly/plotly-1.47.4.min.js"></script>
+		<script src="./js/obs2.js"></script>
+	</body>
+</html>
