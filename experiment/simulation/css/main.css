@@ -23,12 +23,11 @@
 }
 
 .graph {
-	height : 50%;
-	width : 100%;
+	margin-left: 7.5%;
 }
 
-.graph-obs1 {
-	margin-left: 7.5%;
+.accl-graph{
+	margin-left: 35%;
 }
 
 .plot-title {
