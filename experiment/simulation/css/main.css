@@ -12,6 +12,7 @@
 .action-button {
 	color: white;
 	text-align: center;
+	font-size: 120%;
 	background-color: #288EC8;
 	border-radius: 16px;
 	padding: 10px 20px;
@@ -23,11 +24,6 @@
 }
 
 .graph {
-	height : 50%;
-	width : 100%;
-}
-
-.graph-obs1 {
 	margin-left: 7.5%;
 }
 

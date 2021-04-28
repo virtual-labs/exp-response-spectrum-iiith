@@ -12,7 +12,12 @@
 - After selecting the time period, user can select the earthquake ground motion record of their choice. Note that it is recommended to use the default of 1 for best understanding. User can also set the damping(etta).
 - User can find the maximum response corresponding to the time period selected highlighted in the graphs by a red point.
 - User may repeat the experiment using different ground records and damping values to observe corresponding changes in the graphs. 
+- Note that there is no simulation or animation for this observation. Only a static diagram has been displayed for a basic understanding.
 
 **Video:** Realistic Simulation
 
 - The video enables the user to gain a deeper insight and hence a better understanding by observing the experiment being simulated in a live environment with appropriate lab equipment.
+
+**Graphs:**
+
+- There are various features available for the graphs such as zoom, etc. The function/feature of each icon above the graphs becomes visible upon hovering over the concerned icon.
