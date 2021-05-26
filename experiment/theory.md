@@ -4,11 +4,11 @@ A variety of response spectra can be defined depending on the response quantity 
 
 <img src="images/rs1.PNG"> 
 
- 
+ <br>
 
 <img src="images/rs2.PNG"> 
 
- 
+  <br>
 
 <img src="images/rs3.PNG"> 
 
