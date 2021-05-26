@@ -2,4 +2,10 @@ Response spectrum is one of the useful tools of earthquake engineering for analy
 
 A response spectrum is a plot of the maximum response amplitude (displacement, velocity or acceleration) versus time period of many linear single degree of freedom oscillators to a give component of ground motion. The resulting plot can be used to select the response of any linear SDOF oscillator, given its natural frequency of oscillation. One such use is in assessing the peak response of buildings to earthquakes.
 
-[image](images/6.jpg)
+ 
+<img src="images/6.jpg"> 
+
+To understand the concept of response spectrum and to construct the same for a given component of ground motion.
+
+
+<img src="images/resp_concept.PNG"> 

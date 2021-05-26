@@ -6,5 +6,6 @@
 - Run the experiment.
 - You will observe after completing that the maximum displacement of the oscillators with same time period is same irrespective of their different masses and stiffnesses.
 
-[Read More](doc/5.manual.pdf)
+ 
+<img src="images/5.manual.pdf"> 
 
