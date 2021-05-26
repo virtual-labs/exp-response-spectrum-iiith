@@ -1,5 +1,3 @@
-
-
 **Observation 1:** Concept of Response Spectrum
 
 - There are 2 buildings shown on the screen. User can select the mass and stiffness of both the buildings. However, user needs to make sure that both buildings have the same time period, i.e, the ratio of mass and stiffness is the same.   

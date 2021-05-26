@@ -1,1 +1,1 @@
-### Concept of Response Spectrum 
+## Concept of Response Spectrum 
