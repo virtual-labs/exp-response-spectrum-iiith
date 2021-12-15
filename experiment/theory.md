@@ -14,4 +14,4 @@ A variety of response spectra can be defined depending on the response quantity 
 
  
 
-[Read More](doc/5.Theory.pdf)
+[Read More](docs/5.Theory.pdf)
