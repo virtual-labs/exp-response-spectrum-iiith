@@ -3,7 +3,8 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+		<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css"> -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/virtual-labs/virtual-style@0.0.6-b/css/style.css">
 		<link rel="stylesheet" href="./css/main.css">
 	</head>
 
@@ -32,32 +33,32 @@
 
 		<div class="columns is-centered">
 			<div class="column has-text-centered">
-				<div class="slidecontainer">
+				<div class="v-slider">
 					<p>GROUND MOTION: <span id="demo_groundMot"></span></p>
-					<input type="range" min="1" max="6" value="1" class="slider" id="groundMot">
+					<input type="range" min="1" max="6" value="1" class="v-slider" id="groundMot">
 				</div>
 			</div>
 
 			<div class="column has-text-centered">
-				<div class="slidecontainer">
+				<div class="v-slider">
 					<p>ETTA(DAMPING in %): <span id="demo_etta"></span></p>
-					<input type="range" min="2" max="15" value="5" class="slider" id="etta">
+					<input type="range" min="2" max="15" value="5" class="v-slider" id="etta">
 				</div>
 			</div>
 
 			<div class="column has-text-centered">
-				<div class="slidecontainer">
+				<div class="v-slider">
 					<p>TIME PERIOD(in millisec): <span id="demo_timePeriod"></span></p>
-					<input type="range" min="100" max="4000" step="100" value="100" class="slider" id="timePeriod">
+					<input type="range" min="100" max="4000" step="100" value="100" class="v-slider" id="timePeriod">
 				</div>
 			</div>
 		</div>
 
 		<div class="columns is-mobile is-centered">
 			<div class="column has-text-centered">
-				<div class="hero is-small">
-					<div class="hero-body">
-						<canvas class="main" id="main"></canvas>
+				<div class="column is-small">
+					<div class="column">
+						<canvas class="v-canvas-container" id="main"></canvas>
 					</div>
 				</div>
 			</div>
