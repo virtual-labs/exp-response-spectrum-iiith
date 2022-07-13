@@ -9,12 +9,7 @@
 	</head>
 
 	<body class="page">
-		<div class="columns is-mobile is-centered">
-			<div class="column has-text-centered">
-				<h1 class="title">Concept of Response Spectrum</h1>
-			</div>
-		</div>
-
+		
 		<div class="v-tabs is-medium">
 			<ul>
 				<li class="is-active"><a href="./index.html">Observation 1</a></li>
@@ -31,18 +26,86 @@
 			</div>
 		</div>
 
+
+
+<div class="columns is-centered is-flex">
+         <div class="column mt-2 is-10-desktop is-10-tablet is-10-mobile has-text-centered">
+            <div class="column center-content">
+            </div>
+            <div class="columns is-mobile is-centered is-flex">
+               <div id="anime-demo" class="column has-text-centered controls">
+                 <button id="play" class="v-button">Play</button>
+				<button id="pause" class="v-button">Pause</button>
+				<button id="restart" class="v-button">Restart</button>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- -->
+      <div class="columns is-centered is-variable is-flex is-flex-wrap-wrap workspace">
+         <div id="apparatus" class="column has-text-centered is-2-desktop is-5-tablet is-9-mobile apparatus">
+            <div class="v-datalist-container">
+            	<div class="column">
+               <div class="v-datalist-title">Input Parameters</div>
+               <p>Mass 1 (kg): <span id="demo_mass1"></span></p>
+					<input type="range" min="50000" max="250000" value="100000" class="v-slider-full" id="mass1">
+					<p>Mass 2 (kg): <span id="demo_mass2"></span></p>
+					<input type="range" min="50000" max="250000" value="100000" class="v-slider-full" id="mass2">
+					<p>Stiffness 1 (kN/m): <span id="demo_stiff1"></span></p>
+					<input type="range" min="20000000" max="40000000" value="30000000" class="v-slider-full" id="stiff1">
+					<p>Stiffness 2 (kN/m): <span id="demo_stiff2"></span></p>
+					<input type="range" min="20000000" max="40000000" value="30000000" class="v-slider-full" id="stiff2">
+					<p>Ground Motion: <span id="demo_groundMot"></span></p>
+					<input type="range" min="1" max="6" value="1" class="v-slider-full" id="groundMot">
+				</div>
+            </div>
+         </div>
+      <!-- -->
+        <div  class="column has-text-centered is-3-desktop is-5-tablet is-9-mobile observations">
+            <div class="v-datalist-container">
+               <div class="v-datalist-title">Observations</div>
+               
+               <div class="v-tabs ">
+                  <ul>
+                     <li class="tablinks" onclick="openGraph(event, 'disB1Plot')"><a><span>Left Building</span></a></li>
+                     <li class="tablinks" onclick="openGraph(event, 'disB2Plot')"><a><span>Right Building</span></a></li>
+                  </ul>
+               </div> 
+             
+               <div class="v-datalist-row">
+                 <div id="disB1Plot" class="graphcontent v-icon-panel-item"> </div>                  
+                 <div id="disB2Plot" class="graphcontent v-icon-panel-item"></div>  
+                    
+               </div>
+            </div>
+         </div>
+
+
+       
+
+	  <div class="column has-text-centered is-5-desktop is-10-tablet is-10-mobile simulation" id="container">
+         <div class="v-datalist-container">
+            <div class="columns">
+               <div class="column is-fullwidth">
+                  <canvas id="main" style="max-width: 600px; "></canvas>    
+               </div>
+            </div>
+         </div>
+      </div> 
+ 
+      </div>
+
+
 		<div class="columns is-centered">
 			<div class="column has-text-centered">
 				<div class="v-slider">
-					<p>MASS 1(in kg): <span id="demo_mass1"></span></p>
-					<input type="range" min="50000" max="250000" value="100000" class="v-slider" id="mass1">
+					
 				</div>
 			</div>
 
 			<div class="column has-text-centered">
 				<div class="v-slider">
-					<p>MASS 2(in kg): <span id="demo_mass2"></span></p>
-					<input type="range" min="50000" max="250000" value="100000" class="v-slider" id="mass2">
+					
 				</div>
 			</div>
 		</div>
@@ -50,15 +113,13 @@
 		<div class="columns is-centered">
 			<div class="column has-text-centered">
 				<div class="v-slider">
-					<p>STIFFNESS 1: <span id="demo_stiff1"></span></p>
-					<input type="range" min="20000000" max="40000000" value="30000000" class="v-slider" id="stiff1">
+					
 				</div>
 			</div>
 
 			<div class="column has-text-centered">
 				<div class="v-slider">
-					<p>STIFFNESS 2: <span id="demo_stiff2"></span></p>
-					<input type="range" min="20000000" max="40000000" value="30000000" class="v-slider" id="stiff2">
+					
 				</div>
 			</div>
 		</div>
@@ -66,17 +127,14 @@
 		<div class="columns is-centered">
 			<div class="column has-text-centered">
 				<div class="v-slider">
-					<p>GROUND MOTION: <span id="demo_groundMot"></span></p>
-					<input type="range" min="1" max="6" value="1" class="v-slider" id="groundMot">
+					
 				</div>
 			</div>
 		</div>
 
 		<div class="columns is-mobile is-centered">
 			<div class="column has-text-centered">
-				<button id="play" class="v-button">Play</button>
-				<button id="pause" class="v-button">Pause</button>
-				<button id="restart" class="v-button">Restart</button>
+				
 			</div>
 		</div>
 
@@ -84,7 +142,7 @@
 			<div class="column has-text-centered">
 				<div class="hero is-small">
 					<div class="column">
-						<canvas class="v-canvas-container" id="main"></canvas>
+						
 					</div>
 				</div>
 			</div>
@@ -92,15 +150,9 @@
 
 		<div class="graph">
 			<div class="columns is-centered">
-				<div class="column has-text-centered">
-					<div class="title is-4 plot-title">Left Building</div>
-					<div id="disB1Plot"></div>
-				</div>
+				
 
-				<div class="column has-text-centered">
-					<div class="title is-4 plot-title">Right Building</div>
-					<div id="disB2Plot"></div>
-				</div>
+				
 			</div>
 		</div>
 

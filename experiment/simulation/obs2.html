@@ -25,60 +25,121 @@
 			</div>
 		</div>
 
-		<div class="columns is-centered">
-			<div class="column has-text-centered">
-				<div class="v-slider">
-					<p>GROUND MOTION: <span id="demo_groundMot"></span></p>
-					<input type="range" min="1" max="6" value="1" class="v-slider" id="groundMot">
-				</div>
-			</div>
 
-			<div class="column has-text-centered">
-				<div class="v-slider">
-					<p>ETTA(DAMPING in %): <span id="demo_etta"></span></p>
-					<input type="range" min="2" max="15" value="5" class="v-slider" id="etta">
+<div class="columns is-centered is-flex">
+         <div class="column mt-2 is-10-desktop is-10-tablet is-10-mobile has-text-centered">
+            <div class="column center-content">
+            </div>
+            <div class="columns is-mobile is-centered is-flex">
+               <div id="anime-demo" class="column has-text-centered controls">
+                 <button id="play" class="v-button">Play</button>
+				<button id="pause" class="v-button">Pause</button>
+				<button id="restart" class="v-button">Restart</button>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- -->
+      <div class="columns is-centered is-variable is-flex is-flex-wrap-wrap workspace">
+         <div id="apparatus" class="column has-text-centered is-2-desktop is-5-tablet is-9-mobile apparatus">
+            <div class="v-datalist-container">
+            	<div class="column">
+               <div class="v-datalist-title">Input Parameters</div>
+              <p>Ground Motion: <span id="demo_groundMot"></span></p>
+					<input type="range" min="1" max="6" value="1" class="v-slider-full" id="groundMot">
+					<p>Etta(Damping in %): <span id="demo_etta"></span></p>
+					<input type="range" min="2" max="15" value="5" class="v-slider-full" id="etta">
+					<p>Time Period(in millisec): <span id="demo_timePeriod"></span></p>
+					<input type="range" min="100" max="4000" step="100" value="100" class="v-slider-full" id="timePeriod">
 				</div>
-			</div>
+            </div>
+         </div>
+      <!-- -->
 
-			<div class="column has-text-centered">
-				<div class="v-slider">
-					<p>TIME PERIOD(in millisec): <span id="demo_timePeriod"></span></p>
-					<input type="range" min="100" max="4000" step="100" value="100" class="v-slider" id="timePeriod">
-				</div>
-			</div>
-		</div>
+       <div  class="column has-text-centered is-3-desktop is-5-tablet is-9-mobile observations">
+            <div class="v-datalist-container">
+               <div class="v-datalist-title">Observations</div>
+               
+               <div class="v-tabs ">
+                  <ul>
+                     <li class="tablinks" onclick="openGraph(event, 'disPlot')"><a><span>Graph1</span></a></li>
+                     <li class="tablinks" onclick="openGraph(event, 'velPlot')"><a><span>Graph2</span></a></li>
+                     <li class="tablinks" onclick="openGraph(event, 'acclPlot')"><a><span>RGraph3</span></a></li>
+                  </ul>
+               </div> 
+             
+               <div class="v-datalist-row">
+                 <div id="disPlot" class="graphcontent v-icon-panel-item"> 
+                   <div class="column">
+                     <div class="content">
+                        <p style="font-size: 12px;">NOTE: Red represents coordinates as per current input values.
+</p>
+                     </div>
+                  </div>
+                 </div>                  
+                 <div id="velPlot" class="graphcontent v-icon-panel-item">
+                    <div class="column">
+                     <div class="content">
+                        <p style="font-size: 12px;">NOTE: Red represents coordinates as per current input values.
+</p>
+                     </div>
+                  </div>
+                 </div>  
+                   <div id="acclPlot" class="graphcontent v-icon-panel-item">
+                      <div class="column">
+                     <div class="content">
+                        <p style="font-size: 12px;">NOTE: Red represents coordinates as per current input values.
+</p>
+                     </div>
+                  </div>
+                   </div>  
+               </div>
+            </div>
+         </div>
 
-		<div class="columns is-mobile is-centered">
-			<div class="column has-text-centered">
-				<div class="column is-small">
-					<div class="column">
-						<canvas class="v-canvas-container" id="main"></canvas>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="graph">
-			<div class="title is-5">NOTE: Red represents coordinates as per current input values.<div>
-			<div class="columns is-centered">
-				<div class="column has-text-centered">
+       <!--   <div  class="column has-text-centered is-3-desktop is-5-tablet is-5-mobile observations">
+            <div class="v-datalist-container">
+               <div class="v-datalist-title">Observations</div>
+               <p>NOTE: Red represents coordinates as per current input values.</p>
+                <div class="column has-text-centered">
 					<div id="disPlot" ></div>
 				</div>
-
 				<div class="column has-text-centered">
 					<div id="velPlot" ></div>
-				</div>
-
-			</div>
-		</div>
-
-		<div class="accl-graph">
-			<div class="columns is-centered">
-				<div class="column has-text-centered">
+					<div class="column has-text-centered">
 					<div id="acclPlot" ></div>
 				</div>
-			</div>
-		</div>
+				</div>
+              
+            </div>
+         </div> -->
+	 <!-- -->
+	  <div class="column has-text-centered is-5-desktop is-10-tablet is-11-mobile simulation" id="container">
+         <div class="v-datalist-container">
+            <div class="columns">
+               <div class="column is-fullwidth">
+                  <canvas id="main" style=" max-width: 600px; "></canvas>  
+               </div>
+            </div>
+         </div>
+      </div> 
+        <!--  <div class="column has-text-centered is-6-desktop is-10-tablet is-10-mobile simulation v-canvas-container" id="container">
+            <div class="columns">
+               <div class="column">
+               	 <canvas id="main" style="width: 100%; max-width: 700px; height: 100%"></canvas>          
+               </div>
+            </div>            
+         </div> -->
+      </div>
+
+
+
+
+
+
+ 
+			 
+ 
 
 		<script src="./data/groundData1.json"></script>
 		<script src="./data/groundData2.json"></script>
