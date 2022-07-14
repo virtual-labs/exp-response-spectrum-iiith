@@ -1,21 +1,19 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
+   <head>
+     <meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
 		<link rel="stylesheet" href="./css/main.css">
-	</head>
-
-	<body class="page">
-		<div class="tabs is-boxed is-medium">
+   </head>
+   <body class="page">
+   	<div class="tabs is-boxed is-medium">
 			<ul>
 				<li><a href="./index.html">Observation 1</a></li>
 				<li><a href="./obs2.html">Observation 2</a></li>
 				<li class="is-active"><a href="./vid.html">Video</a></li>
 			</ul>
 		</div>
-
 		<div class="graph">
 			<div class="columns is-centered">
 				<div class="column has-text-centered">
@@ -23,13 +21,24 @@
 				</div>
 			</div>
 		</div>
-
-		<div class="columns is-mobile is-centered">
-			<div class="column has-text-centered">
-				<video class="video" id="video" controls>
+      <div class="columns is-centered is-variable is-flex is-flex-wrap-wrap workspace"> 
+         <div class="column has-text-centered is-6-desktop is-10-tablet is-10-mobile simulation v-canvas-container" id="container">
+            <div class="columns">
+               <div class="column">
+               	<video class="video" id="video" controls style="height:370px !important;">
 					<source src="./videos/responsespectrum.mp4" type=video/mp4>
 				</video>
-			</div>
-		</div>
-	</body>
+               </div>
+            </div>            
+         </div>
+      </div>
+      <script src="./js/main.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/animejs@3.0.1/lib/anime.min.js"></script>			
+      <script src="https://cdn.jsdelivr.net/npm/kute.js@2.0.10/dist/kute.min.js"></script>
+   </body>
 </html>
+
+
+
+
+ 
