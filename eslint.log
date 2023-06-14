@@ -1,0 +1,9 @@
+
+/home/runner/work/exp-response-spectrum-iiith/exp-response-spectrum-iiith/experiment/simulation/js/obs1.js
+  280:10  error  Parsing error: Identifier 'openGraph' has already been declared
+
+/home/runner/work/exp-response-spectrum-iiith/exp-response-spectrum-iiith/experiment/simulation/js/obs2.js
+  252:10  error  Parsing error: Identifier 'openGraph' has already been declared
+
+✖ 2 problems (2 errors, 0 warnings)
+

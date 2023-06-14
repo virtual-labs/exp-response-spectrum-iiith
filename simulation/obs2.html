@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css"> -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/virtual-labs/virtual-style@0.0.6-b/css/style.css">
+		<link rel="stylesheet" href="./css/main.css">
+	</head>
+
+	<body class="page">
+		<div class="tabs is-boxed is-medium">
+			<ul>
+				<li><a href="./index.html">Observation 1</a></li>
+				<li class="is-active"><a href="./obs2.html">Observation 2</a></li>
+				<li><a href="./vid.html">Video</a></li>
+			</ul>
+		</div>
+
+		<div class="graph">
+			<div class="columns is-centered">
+				<div class="column has-text-centered">
+					<div class="title is-4">Observation 2</div>
+				</div>
+			</div>
+		</div>
+
+
+<div class="columns is-centered is-flex">
+         <div class="column mt-2 is-10-desktop is-10-tablet is-10-mobile has-text-centered">
+            <div class="column center-content">
+            </div>
+            <div class="columns is-mobile is-centered is-flex">
+               <div id="anime-demo" class="column has-text-centered controls">
+                 <button id="play" class="v-button">Play</button>
+				<button id="pause" class="v-button">Pause</button>
+				<button id="restart" class="v-button">Restart</button>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- -->
+      <div class="columns is-centered is-variable is-flex is-flex-wrap-wrap workspace">
+         <div id="apparatus" class="column has-text-centered is-2-desktop is-5-tablet is-9-mobile apparatus">
+            <div class="v-datalist-container">
+            	<div class="column">
+               <div class="v-datalist-title">Input Parameters</div>
+              <p>Ground Motion: <span id="demo_groundMot"></span></p>
+					<input type="range" min="1" max="6" value="1" class="v-slider-full" id="groundMot">
+					<p>Etta(Damping in %): <span id="demo_etta"></span></p>
+					<input type="range" min="2" max="15" value="5" class="v-slider-full" id="etta">
+					<p>Time Period(in millisec): <span id="demo_timePeriod"></span></p>
+					<input type="range" min="100" max="4000" step="100" value="100" class="v-slider-full" id="timePeriod">
+				</div>
+            </div>
+         </div>
+      <!-- -->
+
+       <div  class="column has-text-centered is-5-desktop is-5-tablet is-9-mobile observations">
+            <div class="v-datalist-container">
+               <div class="v-datalist-title">Observations</div>
+               
+               <div class="v-tabs ">
+                  <ul>
+                     <li class="tablinks" onclick="openGraph(event, 'disPlot')"><a><span>Time/Max Dis</span></a></li>
+                     <li class="tablinks" onclick="openGraph(event, 'velPlot')"><a><span>Time/Max Velocity</span></a></li>
+                     <li class="tablinks" onclick="openGraph(event, 'acclPlot')"><a><span>Time/Max Acceleration</span></a></li>
+                  </ul>
+               </div> 
+             
+               <div class="v-datalist-row">
+                 <div id="disPlot" class="graphcontent v-icon-panel-item"> 
+                   <div class="column">
+                     <div class="content">
+                        <p style="font-size: 12px;">NOTE: Red represents coordinates as per current input values.
+</p>
+                     </div>
+                  </div>
+                 </div>                  
+                 <div id="velPlot" class="graphcontent v-icon-panel-item">
+                    <div class="column">
+                     <div class="content">
+                        <p style="font-size: 12px;">NOTE: Red represents coordinates as per current input values.
+</p>
+                     </div>
+                  </div>
+                 </div>  
+                   <div id="acclPlot" class="graphcontent v-icon-panel-item">
+                      <div class="column">
+                     <div class="content">
+                        <p style="font-size: 12px;">NOTE: Red represents coordinates as per current input values.
+</p>
+                     </div>
+                  </div>
+                   </div>  
+               </div>
+            </div>
+         </div>
+
+       <!--   <div  class="column has-text-centered is-3-desktop is-5-tablet is-5-mobile observations">
+            <div class="v-datalist-container">
+               <div class="v-datalist-title">Observations</div>
+               <p>NOTE: Red represents coordinates as per current input values.</p>
+                <div class="column has-text-centered">
+					<div id="disPlot" ></div>
+				</div>
+				<div class="column has-text-centered">
+					<div id="velPlot" ></div>
+					<div class="column has-text-centered">
+					<div id="acclPlot" ></div>
+				</div>
+				</div>
+              
+            </div>
+         </div> -->
+	 <!-- -->
+	  <div class="column has-text-centered is-4-desktop is-10-tablet is-11-mobile simulation" id="container">
+         <div class="v-datalist-container">
+            <div class="columns">
+               <div class="column is-fullwidth">
+                  <canvas id="main" style=" max-width: 600px; "></canvas>  
+               </div>
+            </div>
+         </div>
+      </div> 
+        <!--  <div class="column has-text-centered is-6-desktop is-10-tablet is-10-mobile simulation v-canvas-container" id="container">
+            <div class="columns">
+               <div class="column">
+               	 <canvas id="main" style="width: 100%; max-width: 700px; height: 100%"></canvas>          
+               </div>
+            </div>            
+         </div> -->
+      </div>
+
+
+
+
+
+
+ 
+			 
+ 
+
+		<script src="./data/groundData1.json"></script>
+		<script src="./data/groundData2.json"></script>
+		<script src="./data/groundData3.json"></script>
+		<script src="./data/groundData4.json"></script>
+		<script src="./data/groundData5.json"></script>
+		<script src="./data/groundData6.json"></script>
+
+		<script src="https://unpkg.com/mathjs@9.2.0/lib/browser/math.js"></script>
+		<script src="https://cdn.plot.ly/plotly-1.47.4.min.js"></script>
+		<script src="./js/obs2.js"></script>
+	</body>
+</html>
